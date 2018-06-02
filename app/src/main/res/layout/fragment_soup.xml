@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/backSaffron">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Soups"
-        android:textSize="30dp"
-        android:id="@+id/soups_tv1"/>
+        android:id="@+id/soups_tv1">
+        <TextView
+            android:textColor="@color/frontSaffron"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tandoor"
+            android:textSize="30dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/round_green"
+            android:onClick="showCategory"/>
+    </RelativeLayout>
+
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

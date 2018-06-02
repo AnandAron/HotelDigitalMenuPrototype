@@ -57,6 +57,7 @@ public class GrillChicken extends Fragment {
                 menuItemList=new ArrayList<>();
 
                 for(DataSnapshot itemSnapshot:dataSnapshot.child("Menu").child(TAG).getChildren()){
+                    Log.e(TAG, "onDataChange: "+itemSnapshot.child("id").getValue().toString());
                     menuItemList.add(new MenuItem(itemSnapshot.child("id").getValue().toString(),itemSnapshot.child("dishName").getValue().toString(),itemSnapshot.child("rate").getValue().toString(),itemSnapshot.child("availability").getValue().toString()));
 
                 }

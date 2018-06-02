@@ -229,17 +229,18 @@ public class MenuActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch(position){
                 case 0:
-                    return SpicyIndianFragment.newInstance();
+                    return Breads.newInstance();
+
 
                 case 1:
                     return ChineseFragment.newInstance();
 
-                case 2:return Breads.newInstance();
-                case 3:return Desserts.newInstance();
-                case 4:return Gravies.newInstance();
-                case 5:return GrillChicken.newInstance();
-                case 6:return Indian.newInstance();
-                case 7:return RiceAndNoodles.newInstance();
+                case 6:return RiceAndNoodles.newInstance();
+                case 2:return Desserts.newInstance();
+                case 3:return Gravies.newInstance();
+                case 4:return GrillChicken.newInstance();
+                case 5:return Indian.newInstance();
+                case 7:return SpicyIndianFragment.newInstance();
                 case 8:return Rolls.newInstance();
                 case 9:return Tandoor.newInstance();
                 case 10:return Veg.newInstance();

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#EFEFEF">
+    android:background="#EFEFEF"
+    android:padding="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="5dp"
         android:id="@+id/dialog_ll1">
 
         <TextView
@@ -45,19 +47,21 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"
+            android:text="-"
             android:textSize="30dp"
+            android:background="@color/frontSaffron"
             android:layout_weight="1"
-            android:background="#010101"
-            android:id="@+id/btn_plus"/>
+            android:id="@+id/btn_minus"
+            />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
+            android:text="+"
             android:textSize="30dp"
-            android:background="#010101"
             android:layout_weight="1"
-            android:id="@+id/btn_minus"/>
+            android:background="@color/frontSaffron"
+            android:id="@+id/btn_plus"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,14 +88,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#101010"
+            android:background="@color/frontSaffron"
             android:text="Cancel"
             android:id="@+id/dialog_cancel"
             android:layout_weight="1"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#101010"
+            android:background="@color/frontSaffron"
             android:layout_weight="1"
             android:text="Place"
             android:id="@+id/dialog_done"/>
