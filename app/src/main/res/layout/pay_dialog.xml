@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#EFEFEF"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="End with a dessert?"
+        android:textColor="#010101"
+        android:textSize="30dp"
+        android:id="@+id/pay_dialog_tv1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pay_dialog_tv1"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Try desserts"
+        android:layout_weight="1"
+        android:id="@+id/pay_dialog_dessert"
+        android:padding="5dp"
+
+        />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No thanks"
+            android:layout_weight="1"
+            android:id="@+id/pay_dialog_confirm_payment"
+            android:onClick="showGratitude"
+            />
+    </LinearLayout>
+</RelativeLayout>

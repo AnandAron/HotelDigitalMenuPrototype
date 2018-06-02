@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.hood.red.menudtry2.MenuActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/amountButton"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/status"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/status_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="status"
+                android:textSize="30dp" />
+
+            <ListView
+                android:id="@+id/status_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/linearLayout2"
+                android:layout_below="@id/status_tv1"
+                android:padding="10dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#010101"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/status_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:text="Total" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="showFinalDialog"
+                    android:text="Pay" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <GridLayout
+                android:id="@+id/gridView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:columnCount="3"
+                android:rowCount="3">
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+                <Button
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1" />
+
+            </GridLayout>
+        </ScrollView>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/amountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="@dimen/fab_margin"
+        android:onClick="showSideBar"
+        android:text="0"
+        android:visibility="visible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_toLeftOf="@id/amountButton"
+        android:onClick="sendNotification"
+        android:text="water" />
+
+</RelativeLayout>
