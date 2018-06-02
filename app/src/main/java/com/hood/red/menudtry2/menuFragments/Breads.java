@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,6 +41,8 @@ public class Breads extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_breads, container, false);
+        final ProgressBar pb=rootView.findViewById(R.id.breads_progress);
+        pb.setVisibility(View.VISIBLE);
         listView= (ListView) rootView.findViewById(R.id.breads_list_view);
 
         DatabaseReference ref= FirebaseDatabase.getInstance().getReferenceFromUrl("https://hotelprototype.firebaseio.com/");
@@ -64,6 +67,7 @@ public class Breads extends Fragment {
 
                 menuAdapter= new MenuAdapter(getActivity(),getContext(),menuItemList);
                 listView.setAdapter(menuAdapter);
+                pb.setVisibility(View.INVISIBLE);
 
             }
 

@@ -42,6 +42,8 @@ public class MenuActivity extends AppCompatActivity {
     public static ListView orderListView;
     public static TextView tv_totalStatus;
     public static ScrollView scrollGrid;
+    public static RelativeLayout mainLoading;
+    public static DatabaseReference ref;
     List<Order> orderList;
     StatusListAdapter statusListAdapter;
     String TAG="MenuActivity";
@@ -64,10 +66,14 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_design);
+        ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://hotelprototype.firebaseio.com/");
 
 
+        MainActivity.btn_menu.setVisibility(View.VISIBLE);
 
 
+        mainLoading=findViewById(R.id.main_loading);
+        mainLoading.setVisibility(View.GONE);
 
         status=findViewById(R.id.status);
         orderListView= findViewById(R.id.status_list_view);
@@ -79,6 +85,7 @@ public class MenuActivity extends AppCompatActivity {
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
+        //mViewPager.setOffscreenPageLimit(1);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
@@ -143,11 +150,11 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void sendNotification(View view) {
-        DatabaseReference ref= FirebaseDatabase.getInstance().getReferenceFromUrl("https://hotelprototype.firebaseio.com/");
         ref.child("Water").child(MainActivity.tableId).setValue(System.currentTimeMillis());
     }
 
     public void showViewPager(View view) {
+        mainLoading.setVisibility(View.VISIBLE);
         scrollGrid.setVisibility(View.GONE);
         switch(view.getTag().toString()){
             case "grid1":mViewPager.setCurrentItem(0);break;
@@ -164,6 +171,7 @@ public class MenuActivity extends AppCompatActivity {
             case "grid12":mViewPager.setCurrentItem(11);break;
         }
         mViewPager.setVisibility(View.VISIBLE);
+        mainLoading.setVisibility(View.GONE);
     }
 
     public void showCategory(View view) {

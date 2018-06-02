@@ -29,6 +29,8 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.hood.red.menudtry2.MenuActivity.ref;
+
 /**
  * Created by malyf on 29/5/18.
  */
@@ -107,22 +109,21 @@ public class PlaceOrderDialog extends Dialog  {
         place.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MenuActivity.mainLoading.setVisibility(View.VISIBLE);
                 plates=Integer.parseInt(tv_count.getText().toString());
                 try {
 
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReferenceFromUrl("https://hotelprototype.firebaseio.com/");
                     ref.child("Tables").child(MainActivity.tableId).child("" + System.currentTimeMillis()).setValue(new Order(dishName, id, plates, "placed",Integer.parseInt(tv_rate.getText().toString())));
                 }
                 catch (Exception e){
                     Log.e(TAG, "onClick: "+e.getMessage() );
                 }
                 finally {
-                    Toast.makeText(activity,"Order Placed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity,"Order Placed",Toast.LENGTH_LONG).show();
                     dismiss();
-                    MenuActivity.status.setVisibility(View.VISIBLE);
 
+                    MenuActivity.mainLoading.setVisibility(View.GONE);
 
-                    DatabaseReference ref= FirebaseDatabase.getInstance().getReferenceFromUrl("https://hotelprototype.firebaseio.com/");
 
                     orderList=new ArrayList<>();
                     // Read from the database
