@@ -1,9 +1,11 @@
 package com.hood.red.menudtry2;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,5 +41,10 @@ public class GratitudeActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void showRateingDialog(View view) {
+        Dialog d= new RatingDialog(this);
+        d.show();
     }
 }

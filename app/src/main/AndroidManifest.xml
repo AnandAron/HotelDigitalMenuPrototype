@@ -24,6 +24,7 @@
             android:theme="@style/AppTheme"></activity>
         <activity android:name=".GratitudeActivity"
             android:noHistory="true"></activity>
+
     </application>
 
 </manifest>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_white_rounded_bg"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="false"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout5">
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_star_big_off"
+            android:id="@+id/r_1"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_star_big_off"
+            android:id="@+id/r_2"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+
+            android:id="@+id/r_3"
+            android:background="@android:drawable/btn_star_big_off" />
+
+        <Button
+            android:layout_width="50dp"
+            android:id="@+id/r_4"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/btn_star_big_off" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/r_5"
+            android:background="@drawable/star_off" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/round_green"
+        android:id="@+id/rate_done"
+        android:text="Done!" />
+
+</RelativeLayout>
