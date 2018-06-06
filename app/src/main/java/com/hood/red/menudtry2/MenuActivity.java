@@ -52,7 +52,7 @@ public class MenuActivity extends AppCompatActivity {
     StatusListAdapter statusListAdapter;
     String TAG="MenuActivity";
 
-    public static final long DISCONNECT_TIMEOUT = 10000; // 5 min = 5 * 60 * 1000 ms
+    public static final long DISCONNECT_TIMEOUT = 300000; // 5 min = 5 * 60 * 1000 ms
 
     private static Handler disconnectHandler = new Handler();
 
