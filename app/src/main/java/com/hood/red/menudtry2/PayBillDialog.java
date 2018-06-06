@@ -31,18 +31,12 @@ public class PayBillDialog extends Dialog {
         dessertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MenuActivity.mViewPager.setCurrentItem(1);
+                MenuActivity.scrollGrid.setVisibility(View.GONE);
+                MenuActivity.mViewPager.setVisibility(View.VISIBLE);
+                MenuActivity.mViewPager.setCurrentItem(9);
                 dismiss();
             }
         });
-        /*confirmPaymentBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i= new Intent(context,GratitudeActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                a.startActivity(i);
-            }
-        });
-*/
+
     }
 }

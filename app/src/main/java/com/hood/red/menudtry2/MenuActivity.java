@@ -1,6 +1,8 @@
 package com.hood.red.menudtry2;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -27,6 +29,7 @@ import com.hood.red.menudtry2.menuFragments.Desserts;
 import com.hood.red.menudtry2.menuFragments.Gravies;
 import com.hood.red.menudtry2.menuFragments.GrillChicken;
 import com.hood.red.menudtry2.menuFragments.Indian;
+import com.hood.red.menudtry2.menuFragments.MyBaseActivity;
 import com.hood.red.menudtry2.menuFragments.RiceAndNoodles;
 import com.hood.red.menudtry2.menuFragments.Rolls;
 import com.hood.red.menudtry2.menuFragments.Soups;
@@ -38,6 +41,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
+
+
+
     public static RelativeLayout status;
     public static ListView orderListView;
     public static TextView tv_totalStatus;
@@ -45,6 +51,12 @@ public class MenuActivity extends AppCompatActivity {
     List<Order> orderList;
     StatusListAdapter statusListAdapter;
     String TAG="MenuActivity";
+
+    public static final long DISCONNECT_TIMEOUT = 10000; // 5 min = 5 * 60 * 1000 ms
+
+    private static Handler disconnectHandler = new Handler();
+
+
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -59,6 +71,34 @@ public class MenuActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     public static ViewPager mViewPager;
+    public void resetDisconnectTimer(){
+        disconnectHandler.removeCallbacks(disconnectCallback);
+        disconnectHandler.postDelayed(disconnectCallback, DISCONNECT_TIMEOUT);
+    }
+
+    public void stopDisconnectTimer(){
+        disconnectHandler.removeCallbacks(disconnectCallback);
+    }
+
+    @Override
+    public void onUserInteraction(){
+        resetDisconnectTimer();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        resetDisconnectTimer();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        stopDisconnectTimer();
+    }
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +186,15 @@ public class MenuActivity extends AppCompatActivity {
         DatabaseReference ref= FirebaseDatabase.getInstance().getReferenceFromUrl("https://hotelprototype.firebaseio.com/");
         ref.child("Water").child(MainActivity.tableId).setValue(System.currentTimeMillis());
     }
+
+    private Runnable disconnectCallback = new Runnable() {
+        @Override
+        public void run() {
+            Log.e(TAG, "run:Yesssss ");
+            Dialog bored=new BoredDialog(MenuActivity.this);
+            bored.show();
+        }
+    };
 
     public void showViewPager(View view) {
         scrollGrid.setVisibility(View.GONE);

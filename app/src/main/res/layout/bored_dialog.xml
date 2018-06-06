@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/backSaffron">
+
+    <TextView
+        android:id="@+id/bored_dialog_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Bored?"
+        android:textSize="40dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bored_dialog_tv1"
+        android:layout_centerHorizontal="true"
+        >
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_green"
+        android:text="Try our articles"
+        android:id="@+id/dialog_bored_btn1"
+        android:padding="10dp"/>
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="2dp"
+             />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_green"
+        android:text="No thanks"
+        android:id="@+id/dialog_bored_btn2"
+        android:padding="10dp"
+        />
+    </LinearLayout>
+</RelativeLayout>
