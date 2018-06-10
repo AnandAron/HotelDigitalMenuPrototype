@@ -11,12 +11,32 @@ public class MenuItem {
     private String dishName;
     private String rate;
     private String availability;
+    private String img;
+    private String desc;
 
-    public MenuItem(String id, String dishName, String rate, String availability) {
+    public MenuItem(String id, String dishName, String rate, String availability,String img,String desc) {
         this.id = id;
         this.dishName = dishName;
         this.rate = rate;
         this.availability = availability;
+        this.img=img;
+        this.desc=desc;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
     public String getId() {

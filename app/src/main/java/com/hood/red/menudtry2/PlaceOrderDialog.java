@@ -13,21 +13,25 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 /**
  * Created by malyf on 29/5/18.
@@ -35,6 +39,8 @@ import java.util.List;
 
 public class PlaceOrderDialog extends Dialog  {
 
+    private final String desc;
+    private final String img;
     public Activity activity;
     public Dialog dialog;
     private String dishName;
@@ -47,12 +53,14 @@ public class PlaceOrderDialog extends Dialog  {
     List<Order> orderList;
     StatusListAdapter statusListAdapter;
 
-    public PlaceOrderDialog(Activity a,String dishName,String rate,String id) {
+    public PlaceOrderDialog(Activity a,String dishName,String rate,String id,String img,String desc) {
         super(a);
         this.activity=a;
         this.dishName=dishName;
         this.rate=rate;
         this.id=id;
+        this.desc=desc;
+        this.img=img;
     }
 
     @Override
@@ -61,12 +69,17 @@ public class PlaceOrderDialog extends Dialog  {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.confirm_order);
         TextView tv1= findViewById(R.id.sample);
+        ImageView im=findViewById(R.id.imageView);
+        TextView desc_tv=findViewById(R.id.desc_tv);
         final TextView tv_rate= findViewById(R.id.dialog_rate);
         final TextView tv_count= findViewById(R.id.dishCount);
         Button cancel= findViewById(R.id.dialog_cancel);
         tv1.setText(dishName);
         tv_rate.setText(rate);
         Button plus= findViewById(R.id.btn_plus);
+        desc_tv.setText(desc);
+
+        Picasso.get().load(img).fit().centerCrop().into(im);
 
         plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +130,8 @@ public class PlaceOrderDialog extends Dialog  {
                     Log.e(TAG, "onClick: "+e.getMessage() );
                 }
                 finally {
-                    Toast.makeText(activity,"Order Placed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity,"Order Placed",Toast.LENGTH_LONG).show();
+                    Log.e(TAG, "onClick: placed!!!!!!!!!!" );
                     dismiss();
                     MenuActivity.status.setVisibility(View.VISIBLE);
 

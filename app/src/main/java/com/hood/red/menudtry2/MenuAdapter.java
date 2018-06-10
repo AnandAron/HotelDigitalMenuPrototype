@@ -57,7 +57,7 @@ public class MenuAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-                PlaceOrderDialog dialog= new PlaceOrderDialog(activity,menuItemList.get(position).getDishName(),menuItemList.get(position).getRate(),menuItemList.get(position).getId());
+                PlaceOrderDialog dialog= new PlaceOrderDialog(activity,menuItemList.get(position).getDishName(),menuItemList.get(position).getRate(),menuItemList.get(position).getId(),menuItemList.get(position).getImg(),menuItemList.get(position).getDesc());
                 dialog.show();
 
                 //Toast.makeText(context,dishName.getText().toString(),Toast.LENGTH_LONG).show();

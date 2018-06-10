@@ -57,7 +57,7 @@ public class Tandoor extends Fragment {
                 menuItemList=new ArrayList<>();
 
                 for(DataSnapshot itemSnapshot:dataSnapshot.child("Menu").child(TAG).getChildren()){
-                    menuItemList.add(new MenuItem(itemSnapshot.child("id").getValue().toString(),itemSnapshot.child("dishName").getValue().toString(),itemSnapshot.child("rate").getValue().toString(),itemSnapshot.child("availability").getValue().toString()));
+                    menuItemList.add(new MenuItem(itemSnapshot.child("id").getValue().toString(),itemSnapshot.child("dishName").getValue().toString(),itemSnapshot.child("rate").getValue().toString(),itemSnapshot.child("availability").getValue().toString(),itemSnapshot.child("img").getValue().toString(),itemSnapshot.child("desc").getValue().toString()));
 
                 }
 

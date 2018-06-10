@@ -52,7 +52,7 @@ public class MenuActivity extends AppCompatActivity {
     StatusListAdapter statusListAdapter;
     String TAG="MenuActivity";
 
-    public static final long DISCONNECT_TIMEOUT = 10000; // 5 min = 5 * 60 * 1000 ms
+    public static final long DISCONNECT_TIMEOUT = 60000; // 5 min = 5 * 60 * 1000 ms
 
     private static Handler disconnectHandler = new Handler();
 
@@ -148,9 +148,7 @@ public class MenuActivity extends AppCompatActivity {
                             itemSnapshot.child("status").getValue().toString(),
                             Integer.parseInt(itemSnapshot.child("rate").getValue().toString()))
                     );
-                    Log.d(TAG, "Value is:"+ itemSnapshot.child("dishName").getValue().toString()+
-                            itemSnapshot.child("id").getValue().toString()+
-                            Integer.parseInt(itemSnapshot.child("plates").getValue().toString()) );
+
                     total=total+Integer.parseInt(itemSnapshot.child("rate").getValue().toString());
 
                 }
@@ -218,6 +216,10 @@ public class MenuActivity extends AppCompatActivity {
     public void showCategory(View view) {
         mViewPager.setVisibility(View.GONE);
         scrollGrid.setVisibility(View.VISIBLE);
+    }
+    public void showArticle(View view){
+        Intent i=new Intent(this,Article.class);
+        startActivity(i);
     }
 
     public void showOrderStatus(View view) {

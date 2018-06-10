@@ -26,15 +26,9 @@ class BoredDialog extends Dialog {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.bored_dialog);
-        Button yes = findViewById(R.id.dialog_bored_btn1);
+       // Button yes = findViewById(R.id.dialog_bored_btn1);
         Button no= findViewById(R.id.dialog_bored_btn2);
-        yes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i= new Intent(context,Content.class);
-                context.startActivity(i);
-            }
-        });
+
        no.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
